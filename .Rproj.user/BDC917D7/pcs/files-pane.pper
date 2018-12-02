@@ -1,0 +1,9 @@
+{
+    "path" : "~/projects/pkgprep",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
