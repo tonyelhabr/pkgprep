@@ -12,7 +12,8 @@ owners <-
   )
 path_pkgs <- "utils-eda/data/pkgs.rds"
 
-path_xdf_raw <- "utils-eda/data-raw/utility-belt.rds"
+# path_xdf_raw <- "utils-eda/data-raw/utility-belt.rds"
+path_xdf_raw <- "https://rud.is/dl/utility-belt.rds"
 path_xdf_parsed <- "utils-eda/data/xdf-parsed.rds"
 
 if(file.exists(path_pkgs)) {
@@ -32,6 +33,9 @@ if(file.exists(path_pkgs)) {
     separate(name, into = c("owner", "repo"), remove = FALSE, sep = "/")
   pkgs
   
+  if(!dir.exists(dirname(path_pkgs))) {
+    invisible(dir.create(dirname(path_pkgs), recursive = TRUE))
+  }
   pkgs %>% write_rds(path_pkgs)
 }
 
@@ -70,6 +74,9 @@ if(file.exists(path_xdf_parsed)) {
     mutate(func_names = purrr::map(parsed, get_func_names))
   xdf_parsed
   
+  if(!dir.exists(dirname(path_xdf_parsed))) {
+    invisible(dir.create(dirname(path_xdf_parsed), recursive = TRUE))
+  }
   xdf_parsed %>% write_rds(path_xdf_parsed)
 }
 

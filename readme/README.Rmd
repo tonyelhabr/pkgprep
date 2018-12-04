@@ -1,0 +1,36 @@
+---
+title: cli
+output:
+  github_document:
+    toc: true
+    toc_depth: 3
+    includes:
+      before_body: header.md
+---
+
+```{r, setup, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  fig.path = "man/figures/"
+)
+```
+
+# Installation
+
+Install the stable version from CRAN:
+
+```r
+install.packages("cli")
+```
+
+Install the development version from GitHub:
+
+```r
+source("https://install-github.me/r-lib/cli")
+```
+
+# Usage
+ 
+```{r}
+library(cli)
+```
